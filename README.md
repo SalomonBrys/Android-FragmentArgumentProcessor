@@ -13,6 +13,7 @@ The most popular (and recommended) pattern for fragment with arguments is the ["
 
 Here is an example of a fragment that uses this pattern :
 
+```java
 	public class ExampleFragment extends Fragment {
 	
 		private static final String ARG_TEXT = "text";
@@ -42,10 +43,13 @@ Here is an example of a fragment that uses this pattern :
 			return root;
 		}
 	}
+```
 
 You then instanciate the fragment with :
 
+```java
 	ExampleFragment fragment = ExampleFragment.newInstance("Hello world", R.drawable.smile);
+```
 
 FAP (Fragment Argument Processor) is a Java Annotation processor that enables you to write only the logic of your fragment. It handles for you the newInstance factory pattern and the argument handling.
 
@@ -53,6 +57,7 @@ To do this, FAP creates a new class named `[yourFragment]Arguments`. You can use
 
 Here is the previous fragment written with FAP :
 
+```java
 	@FragmentArguments({
 		@FragmentArgument(type = String.class, name = "text"),
 		@FragmentArgument(type = int.class, name = "imageRes")
@@ -65,19 +70,22 @@ Here is the previous fragment written with FAP :
 
 			ExampleFragmentArguments args = new ExampleFragmentArguments(this);
 	
-			final TextView textView = (TextView) root.findViewById(R.id.textView);
+			TextView textView = (TextView) root.findViewById(R.id.textView);
 			textView.setText(args.text());
 
-			final ImageView imageView = (ImageView) root.findViewById(R.id.imageView);
+			ImageView imageView = (ImageView) root.findViewById(R.id.imageView);
 			imageView.setImageResource(args.imageRes());
 	
 			return root;
 		}
 	}
+```
 
 You then instanciate the fragment with :
 
+```java
 	ExampleFragment fragment = ExampleFragmentArguments.newExampleFragment("Hello world", R.drawable.smile);
+```
 
 As you can see, you don't have to write the factory anymore: it is handled for you.
 
@@ -89,9 +97,9 @@ Limitations
 * Argument types must be valid for a bundle or it will be ignored:
 	- Primitive (eg. int.class)
 	- Primitive array (eg. int[].class)
-	- String, CharSequence or a subclass one of their subclass
-	- Bundle, SparseArray, IBinder or a subclass one of their subclass
-	- Parcelable, Serializable or a subclass one of their subclass
+	- String, CharSequence or of their subclass
+	- Bundle, SparseArray, IBinder or one of their subclass
+	- Parcelable, Serializable or one of their subclass
 	- String[], CharSequence[]
 	- Parcelable[]
 
@@ -99,7 +107,7 @@ Limitations
 Usage in Eclipse
 ----------------
 
-1. Download FragmentArgumentProcessor.jar
+1. Download [FragmentArgumentProcessor.jar](https://github.com/SalomonBrys/Android-FragmentArgumentProcessor/raw/master/FragmentArgumentProcessor.jar)
 2. Put it in your Android project `libs` directory
 3. In your eclipse project properties > Java Compiler > Annotation Processing : Check "Enable project specific settings" and "Enable annotation processing"
 4. In your eclipse project properties > Java Compiler > Annotation Processing > Factory Path : check "Enable project specific settings" then click on "Add JARs..." and select `[your-project]/libs/FragmentArgumentProcessor.jar`.
