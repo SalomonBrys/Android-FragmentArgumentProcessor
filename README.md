@@ -4,12 +4,12 @@ Fragment Argument Processor
 > Life is too short to write Fragment factories
 
 
-Android fragment are supposed to be re-instanciated at will by the system, This means that :
+Android fragments are supposed to be re-instanciated at will by the system, it means that :
 
  - They cannot have arguments in their constructors.
  - They cannot retain fields set by their creators.
 
-The most popular (and recommended) pattern for fragment with arguments is the ["newInstance factory"](https://plus.google.com/+AndroidDevelopers/posts/bCD7Zvd945d).
+The most popular (and recommended) pattern for fragments with arguments is the ["newInstance factory"](https://plus.google.com/+AndroidDevelopers/posts/bCD7Zvd945d).
 
 Here is an example of a fragment that uses this pattern :
 
@@ -51,7 +51,7 @@ You then instanciate the fragment with :
 	ExampleFragment fragment = ExampleFragment.newInstance("Hello world", R.drawable.smile);
 ```
 
-FAP (Fragment Argument Processor) is a Java Annotation processor that enables you to write only the logic of your fragment. It handles for you the newInstance factory pattern and the argument handling.
+FAP (Fragment Argument Processor) is a Java Annotation processor that enables you to write only the logic of your fragment. It handles for you the newInstance factory pattern and the arguments handling.
 
 To do this, FAP creates a new class named `[yourFragment]Arguments`. You can use it to create your fragment with the correct arguments and within your fragment to acces your arguments.
 
@@ -94,12 +94,12 @@ Limitations
 -----------
 
 * Argument names must be valid java identifiers: `[a-zA-Z_][a-zA-Z0-9_]*`
-* Argument types must be valid for a bundle or it will be ignored:
+* Argument types must be valid for a bundle or they will be ignored:
 	- Primitive (eg. int.class)
 	- Primitive array (eg. int[].class)
-	- String, CharSequence or one of their subclass
-	- Bundle, SparseArray, IBinder or one of their subclass
-	- Parcelable, Serializable or one of their subclass
+	- String, CharSequence or one of their subclasses
+	- Bundle, SparseArray, IBinder or one of their subclasses
+	- Parcelable, Serializable or one of their subclasses
 	- String[], CharSequence[]
 	- Parcelable[]
 
