@@ -23,7 +23,7 @@ Here is an example of a fragment that uses this pattern :
 			ExampleFragment fragment = new ExampleFragment();
 			Bundle args = new Bundle();
 			args.putString(ARG_TEXT, text);
-			args.putString(ARG_IMAGE_RES, imageRes);
+			args.putInt(ARG_IMAGE_RES, imageRes);
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -97,7 +97,7 @@ Limitations
 * Argument types must be valid for a bundle or it will be ignored:
 	- Primitive (eg. int.class)
 	- Primitive array (eg. int[].class)
-	- String, CharSequence or of their subclass
+	- String, CharSequence or one of their subclass
 	- Bundle, SparseArray, IBinder or one of their subclass
 	- Parcelable, Serializable or one of their subclass
 	- String[], CharSequence[]
