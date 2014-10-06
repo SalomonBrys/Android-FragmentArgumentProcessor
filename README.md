@@ -107,7 +107,7 @@ Limitations
 Usage in Eclipse
 ----------------
 
-1. Download [FragmentArgumentProcessor.jar](https://github.com/SalomonBrys/Android-FragmentArgumentProcessor/raw/master/FragmentArgumentProcessor.jar)
+1. Download [android-fragment-argument-processor.jar](https://github.com/SalomonBrys/Android-FragmentArgumentProcessor/raw/master/build/libs/android-fragment-argument-processor-1.0.jar)
 2. Put it in your Android project `libs` directory
 3. In your eclipse project properties > Java Compiler > Annotation Processing : Check "Enable project specific settings" and "Enable annotation processing"
 4. In your eclipse project properties > Java Compiler > Annotation Processing > Factory Path : check "Enable project specific settings" then click on "Add JARs..." and select `[your-project]/libs/FragmentArgumentProcessor.jar`.
