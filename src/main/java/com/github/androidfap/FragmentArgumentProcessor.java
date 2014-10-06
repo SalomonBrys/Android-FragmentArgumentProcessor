@@ -1,4 +1,4 @@
-package org.fragment.proc;
+package com.github.androidfap;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,9 +22,9 @@ import javax.tools.JavaFileObject;
 /**
  * Annotation processor
  *
- * @author Salomon BRYS <salomon.brys@gmail.com>
+ * @author Salomon BRYS (salomon.brys@gmail.com)
  */
-@SupportedAnnotationTypes({ "org.fragment.proc.FragmentArguments", "org.fragment.proc.FragmentArgument" })
+@SupportedAnnotationTypes({ "com.github.androidfap.FragmentArguments", "com.github.androidfap.FragmentArgument" })
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class FragmentArgumentProcessor extends AbstractProcessor {
 
@@ -141,7 +141,8 @@ public class FragmentArgumentProcessor extends AbstractProcessor {
 		try {
 			final String fragment = typeElement.getSimpleName().toString();
 			final JavaFileObject jfo = this.processingEnv.getFiler().createSourceFile(typeElement.getQualifiedName() + "Arguments");
-			try (final PrintWriter bw = new PrintWriter(jfo.openWriter())) {
+            final PrintWriter bw = new PrintWriter(jfo.openWriter());
+			try {
 				bw.println("package " + pkg.getQualifiedName() + ";");
 				bw.println();
 				bw.println();
@@ -198,7 +199,10 @@ public class FragmentArgumentProcessor extends AbstractProcessor {
 
 				bw.println("}");
 			}
-		}
+            finally {
+                bw.close();
+            }
+        }
 		catch (IOException e) {
 			e.printStackTrace();
 		}

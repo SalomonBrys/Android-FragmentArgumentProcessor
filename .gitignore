@@ -1,8 +1,21 @@
-.metadata/
-bin/
 *~
 .DS_Store
 
-.settings
+gradle.properties
+
+.metadata/
+bin/
+.settings/
 .project
 .classpath
+
+*.iml
+.idea/
+*.ipr
+*.iws
+
+out/
+
+.gradle
+build/*
+!build/libs/

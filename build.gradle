@@ -1,0 +1,81 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+sourceCompatibility = 1.6
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+group = "org.fragment.proc"
+archivesBaseName = "android-fragment-argument-processor"
+version = "1.0"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'android-fragment-argument-processor'
+                packaging 'jar'
+                description 'An annotation processor tool that generates factories for Android Fragments'
+                url 'http://www.example.com/example-application'
+
+                scm {
+                    connection 'scm:git:https://github.com/SalomonBrys/Android-FragmentArgumentProcessor.git'
+                    developerConnection 'scm:git:git@github.com:SalomonBrys/Android-FragmentArgumentProcessor.git'
+                    url 'https://github.com/SalomonBrys/Android-FragmentArgumentProcessor'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'http://opensource.org/licenses/MIT'
+                    }
+                }
+
+                issueManagement {
+                    system 'GitHub Issues'
+                    url 'https://github.com/SalomonBrys/Android-FragmentArgumentProcessor/issues'
+                }
+
+                developers {
+                    developer {
+                        id 'salomonbrys'
+                        name 'Salomon BRYS'
+                        email 'salomon.brys@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}
+
+//dependencies {
+//}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+signing {
+    sign configurations.archives
+}
+

@@ -1,4 +1,4 @@
-package org.fragment.proc;
+package com.github.androidfap;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  *
  * Annotates a fragment or inside a {@link FragmentArguments} if many.
  *
- * @author Salomon BRYS <salomon.brys@gmail.com>
+ * @author Salomon BRYS (salomon.brys@gmail.com)
  */
 @Documented
 @Target(ElementType.TYPE)
