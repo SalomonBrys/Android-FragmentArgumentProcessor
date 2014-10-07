@@ -104,6 +104,28 @@ Limitations
 	- Parcelable[]
 
 
+Usage in Android Studio
+-----------------------
+
+In your `app/build.gradle`:
+
+1. In section `dependencies`, add:
+
+        compile 'com.github.salomonbrys.androidfap:android-fragment-argument-processor:1.0'
+
+2. In section  `buildscript`, subsection `dependencies` (top of the file), add:
+
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+
+3. Under `apply plugin: 'com.android.application'`, add:
+
+        apply plugin: 'com.neenbedankt.android-apt'
+
+Start using it :)
+
+*Attention: Before using generated classes, they must be generated! This means that once you have annotated a fragment with @FragmentArguments, you must run a build before being able to use the generated FragmentArgument class*
+
+
 Usage in Eclipse
 ----------------
 
