@@ -1,4 +1,4 @@
-package com.github.androidfap;
+package com.github.salomonbrys.androidfap;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

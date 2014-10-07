@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-group = "org.fragment.proc"
+group = "com.github.salomonbrys.androidfap"
 archivesBaseName = "android-fragment-argument-processor"
 version = "1.0"
 
@@ -62,9 +62,6 @@ uploadArchives {
     }
 }
 
-//dependencies {
-//}
-
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
@@ -73,6 +70,10 @@ task javadocJar(type: Jar) {
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
 }
 
 signing {

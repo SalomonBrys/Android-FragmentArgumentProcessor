@@ -1,4 +1,4 @@
-package com.github.androidfap;
+package com.github.salomonbrys.androidfap;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +24,7 @@ import javax.tools.JavaFileObject;
  *
  * @author Salomon BRYS (salomon.brys@gmail.com)
  */
-@SupportedAnnotationTypes({ "com.github.androidfap.FragmentArguments", "com.github.androidfap.FragmentArgument" })
+@SupportedAnnotationTypes({ "com.github.salomonbrys.androidfap.FragmentArguments", "com.github.salomonbrys.androidfap.FragmentArgument" })
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class FragmentArgumentProcessor extends AbstractProcessor {
 
